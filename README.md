@@ -1,0 +1,1 @@
+https://doc.rust-jp.rs/book-ja/ch14-03-cargo-workspaces.html
