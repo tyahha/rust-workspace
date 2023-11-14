@@ -7,8 +7,13 @@ name = "add-one"
 version = "0.1.0"
 
 [[package]]
+name = "add-two"
+version = "0.1.0"
+
+[[package]]
 name = "adder"
 version = "0.1.0"
 dependencies = [
  "add-one",
+ "add-two",
 ]
