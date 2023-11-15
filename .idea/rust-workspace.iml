@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/add-one/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/add-two/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/adder/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/smart-pointer/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

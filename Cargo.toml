@@ -4,5 +4,6 @@ members = [
     "adder",
     "add-one",
     "add-two",
+    "smart-pointer",
 ]
 

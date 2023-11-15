@@ -16,4 +16,9 @@ version = "0.1.0"
 dependencies = [
  "add-one",
  "add-two",
+ "smart-pointer",
 ]
+
+[[package]]
+name = "smart-pointer"
+version = "0.1.0"
