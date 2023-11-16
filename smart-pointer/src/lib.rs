@@ -22,6 +22,10 @@ impl <T> Deref for MyBox<T> {
     }
 }
 
+fn hello(name: &str) {
+    println!("hello, {}!", name);
+}
+
 pub fn smart_pointer_main() {
     let b = Box::new(5);
     println!("Box: {}", b);
@@ -45,4 +49,13 @@ pub fn smart_pointer_main() {
 
     let y3 = MyBox::new(x);
     assert_eq!(5, *y3);
+
+    let s1 = "aaa";
+    hello(s1);
+    let s2 = Box::new("bbb");
+    hello(&s2);
+    let s3 = MyBox::new("ccc");
+    hello(&s3);
+    let s4 = MyBox::new(String::from("ddd"));
+    hello(&s4);
 }
