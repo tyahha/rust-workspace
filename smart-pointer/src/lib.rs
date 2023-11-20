@@ -1,3 +1,5 @@
+mod list_with_rc_and_refcell;
+
 #[derive(Debug)]
 enum List {
     Cons(i32, Rc<List>),
@@ -7,6 +9,7 @@ enum List {
 use std::ops::Deref;
 use std::rc::Rc;
 use List::{Cons, Nil};
+use crate::list_with_rc_and_refcell::list_with_rc_and_refcell_main;
 
 struct MyBox<T>(T);
 
@@ -157,4 +160,6 @@ pub fn smart_pointer_main() {
         println!("c: {:?}", c);
     }
     println!("count after c goes out of scope = {}", Rc::strong_count(&a));
+
+    list_with_rc_and_refcell_main();
 }
