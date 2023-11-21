@@ -1,4 +1,5 @@
 mod list_with_rc_and_refcell;
+mod cycle_reference;
 
 #[derive(Debug)]
 enum List {
@@ -162,4 +163,5 @@ pub fn smart_pointer_main() {
     println!("count after c goes out of scope = {}", Rc::strong_count(&a));
 
     list_with_rc_and_refcell_main();
+    cycle_reference::cycle_reference_main();
 }
