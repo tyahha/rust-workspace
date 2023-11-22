@@ -1,5 +1,6 @@
 mod list_with_rc_and_refcell;
 mod cycle_reference;
+mod weak_rc;
 
 #[derive(Debug)]
 enum List {
@@ -11,6 +12,7 @@ use std::ops::Deref;
 use std::rc::Rc;
 use List::{Cons, Nil};
 use crate::list_with_rc_and_refcell::list_with_rc_and_refcell_main;
+use crate::weak_rc::weak_rc_main;
 
 struct MyBox<T>(T);
 
@@ -164,4 +166,5 @@ pub fn smart_pointer_main() {
 
     list_with_rc_and_refcell_main();
     cycle_reference::cycle_reference_main();
+    weak_rc_main();
 }
