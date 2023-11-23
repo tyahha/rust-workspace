@@ -9,3 +9,4 @@ edition = "2021"
 add-one = { path = "../add-one" }
 add-two = { path = "../add-two" }
 smart-pointer = { path = "../smart-pointer" }
+fearless-concurrency = { path = "../fearless-concurrency" }
