@@ -1,8 +1,10 @@
+use std::sync::mpsc;
 use std::thread;
 use std::time::Duration;
 
 pub fn fearless_concurrency_main() {
     thread_spawn_sample();
+    using_channel_sample();
 }
 
 fn thread_spawn_sample() {
@@ -25,4 +27,16 @@ fn thread_spawn_sample() {
 
     handle.join().unwrap();
     handle2.join().unwrap();
+}
+
+fn using_channel_sample() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let val = String::from("hi");
+        tx.send(val).unwrap()
+    });
+
+    let received = rx.recv().unwrap();
+    println!("Got: {}", received);
 }
