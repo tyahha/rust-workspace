@@ -32,12 +32,26 @@ fn thread_spawn_sample() {
 fn using_channel_sample() {
     let (tx, rx) = mpsc::channel();
 
+    let tx1 = mpsc::Sender::clone(&tx);
     thread::spawn(move || {
         let vals = vec![
             String::from("hi"),
             String::from("form"),
             String::from("the"),
             String::from("thread"),
+        ];
+        for val in vals {
+            tx1.send(val).unwrap();
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+
+    thread::spawn(move || {
+        let vals = vec![
+            String::from("more"),
+            String::from("messages"),
+            String::from("for"),
+            String::from("your"),
         ];
         for val in vals {
             tx.send(val).unwrap();
