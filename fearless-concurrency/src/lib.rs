@@ -1,4 +1,5 @@
-use std::sync::{mpsc, Mutex};
+use std::rc::Rc;
+use std::sync::{Arc, mpsc, Mutex};
 use std::thread;
 use std::time::Duration;
 
@@ -74,4 +75,25 @@ fn mutex_sample() {
     }
 
     println!("m = {:?}", m);
+
+    let counter = Arc::new(Mutex::new(0));
+    let mut handles = vec![];
+
+    for i in 0..10 {
+        println!("start: thead num: {}", i);
+        let counter = Arc::clone(&counter);
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+
+            *num += 1;
+        });
+        handles.push(handle);
+        println!("end: thead num: {}", i);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Result: {}", *counter.lock().unwrap());
 }
