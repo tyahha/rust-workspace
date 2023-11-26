@@ -1,10 +1,11 @@
-use std::sync::mpsc;
+use std::sync::{mpsc, Mutex};
 use std::thread;
 use std::time::Duration;
 
 pub fn fearless_concurrency_main() {
     thread_spawn_sample();
     using_channel_sample();
+    mutex_sample();
 }
 
 fn thread_spawn_sample() {
@@ -62,4 +63,15 @@ fn using_channel_sample() {
     for received in rx {
         println!("Got: {}", received);
     }
+}
+
+fn mutex_sample() {
+    let m = Mutex::new(5);
+
+    {
+        let mut num = m.lock().unwrap();
+        *num = 6;
+    }
+
+    println!("m = {:?}", m);
 }
