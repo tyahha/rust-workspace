@@ -17,11 +17,16 @@ dependencies = [
  "add-one",
  "add-two",
  "fearless-concurrency",
+ "oop-in-rust",
  "smart-pointer",
 ]
 
 [[package]]
 name = "fearless-concurrency"
+version = "0.1.0"
+
+[[package]]
+name = "oop-in-rust"
 version = "0.1.0"
 
 [[package]]
