@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/smart-pointer/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/fearless-concurrency/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/oop-in-rust/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/blog/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

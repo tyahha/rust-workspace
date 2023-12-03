@@ -16,10 +16,15 @@ version = "0.1.0"
 dependencies = [
  "add-one",
  "add-two",
+ "blog",
  "fearless-concurrency",
  "oop-in-rust",
  "smart-pointer",
 ]
+
+[[package]]
+name = "blog"
+version = "0.1.0"
 
 [[package]]
 name = "fearless-concurrency"

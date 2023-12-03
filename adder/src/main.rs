@@ -4,6 +4,7 @@ extern crate smart_pointer;
 extern crate fearless_concurrency;
 extern crate oop_in_rust;
 extern crate blog;
+use blog::Post;
 
 fn main() {
     println!("4 + 1 = {}", add_one::add_one(4));
@@ -13,7 +14,7 @@ fn main() {
     fearless_concurrency::fearless_concurrency_main();
     oop_in_rust::oop_in_rust_main();
 
-    let mut post = Pose::new();
+    let mut post = Post::new();
 
     post.add_text("I ate a salad for lunch today");
     assert_eq!("", post.content());
