@@ -23,5 +23,5 @@ fn main() {
     assert_eq!("", post.content());
 
     post.approve();
-    asset_eq!("I ate a salad for lunch today", post.content());
+    assert_eq!("I ate a salad for lunch today", post.content());
 }
