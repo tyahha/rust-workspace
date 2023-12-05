@@ -8,4 +8,8 @@ pub fn pattern_matching_main() {
     while let Some(v) = stack.pop() {
         println!("Value in stack: {}", v);
     }
+
+    let t = (1,2,3);
+    let (x,y,z) = t;
+    println!("tuple: {:?} and destruction: {}, {}, {}", t, x, y, z);
 }
