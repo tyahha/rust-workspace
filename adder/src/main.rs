@@ -6,6 +6,8 @@ extern crate oop_in_rust;
 extern crate blog;
 use blog::Post;
 
+extern crate pattern_matching;
+
 fn main() {
     println!("4 + 1 = {}", add_one::add_one(4));
     println!("6 + 2 = {}", add_two::add_two(6));
@@ -24,4 +26,6 @@ fn main() {
 
     post.approve();
     assert_eq!("I ate a salad for lunch today", post.content());
+
+    pattern_matching::pattern_matching_main();
 }

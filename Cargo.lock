@@ -19,6 +19,7 @@ dependencies = [
  "blog",
  "fearless-concurrency",
  "oop-in-rust",
+ "pattern-matching",
  "smart-pointer",
 ]
 
@@ -32,6 +33,10 @@ version = "0.1.0"
 
 [[package]]
 name = "oop-in-rust"
+version = "0.1.0"
+
+[[package]]
+name = "pattern-matching"
 version = "0.1.0"
 
 [[package]]

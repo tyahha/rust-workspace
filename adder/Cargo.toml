@@ -12,3 +12,4 @@ smart-pointer = { path = "../smart-pointer" }
 fearless-concurrency = { path = "../fearless-concurrency" }
 oop-in-rust = { path = "../oop-in-rust" }
 blog = { path = "../blog" }
+pattern-matching = { path = "../pattern-matching" }
