@@ -12,4 +12,10 @@ pub fn pattern_matching_main() {
     let t = (1,2,3);
     let (x,y,z) = t;
     println!("tuple: {:?} and destruction: {}, {}, {}", t, x, y, z);
+
+    print_coordinates(&(1, 2));
+}
+
+fn print_coordinates(&(x, y): &(i32, i32)) {
+    println!("Current location: ({}, {})", x, y);
 }
