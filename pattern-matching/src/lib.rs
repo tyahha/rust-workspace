@@ -14,6 +14,14 @@ pub fn pattern_matching_main() {
     println!("tuple: {:?} and destruction: {}, {}, {}", t, x, y, z);
 
     print_coordinates(&(1, 2));
+
+    let v = 1;
+
+    match v {
+        1 | 2 => println!("one or two"),
+        3 => println!("three"),
+        _ => println!("other"),
+    }
 }
 
 fn print_coordinates(&(x, y): &(i32, i32)) {
