@@ -7,6 +7,7 @@ extern crate blog;
 use blog::Post;
 
 extern crate pattern_matching;
+extern crate advanced_features;
 
 fn main() {
     println!("4 + 1 = {}", add_one::add_one(4));
@@ -28,4 +29,6 @@ fn main() {
     assert_eq!("I ate a salad for lunch today", post.content());
 
     pattern_matching::pattern_matching_main();
+
+    advanced_features::advanced_features_main();
 }

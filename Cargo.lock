@@ -16,12 +16,17 @@ version = "0.1.0"
 dependencies = [
  "add-one",
  "add-two",
+ "advanced-features",
  "blog",
  "fearless-concurrency",
  "oop-in-rust",
  "pattern-matching",
  "smart-pointer",
 ]
+
+[[package]]
+name = "advanced-features"
+version = "0.1.0"
 
 [[package]]
 name = "blog"
