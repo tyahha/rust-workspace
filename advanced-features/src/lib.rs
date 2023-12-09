@@ -14,7 +14,13 @@ pub fn advanced_features_main() {
     }
 }
 
-unsafe fn dangerous() {}
+extern "C" {
+    fn abs(input: i32) -> i32;
+}
+
+unsafe fn dangerous() {
+    println!("Absolute value of -3 according to C: {}", abs(-3));
+}
 
 fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
     let len = slice.len();
