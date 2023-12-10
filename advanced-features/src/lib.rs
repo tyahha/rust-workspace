@@ -1,5 +1,7 @@
 use std::slice;
 
+static HELLO_WORLD: &str = "Hello, world";
+
 pub fn advanced_features_main() {
     let mut v = vec![1, 2, 3, 4, 5, 6];
     let r = &mut v[..];
@@ -12,6 +14,8 @@ pub fn advanced_features_main() {
     unsafe {
         dangerous();
     }
+
+    println!("name is: {}", HELLO_WORLD);
 }
 
 extern "C" {
