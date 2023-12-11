@@ -1,3 +1,4 @@
+use std::ops::Add;
 use std::slice;
 
 static HELLO_WORLD: &str = "Hello, world";
@@ -9,6 +10,23 @@ unsafe trait Foo {
 
 unsafe impl Foo for i32 {
     // method implementations go here
+}
+
+#[derive(Debug)]
+struct Point {
+    x: u32,
+    y: u32,
+}
+
+impl Add for Point {
+    type Output = Point;
+
+    fn add(self, rhs: Self) -> Self::Output {
+        Point {
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
+        }
+    }
 }
 
 pub fn advanced_features_main() {
@@ -30,6 +48,11 @@ pub fn advanced_features_main() {
         COUNTER += 1;
         println!("COUNTER: {}", COUNTER);
     }
+
+    let p1 = Point { x: 1, y: 2 };
+    let p2 = Point { x: 3, y: 4 };
+    let p3 = p1 + p2;
+    println!("{:?} + {:?} = {:?}", Point { x: 1, y: 2 }, Point { x: 3, y: 4 }, p3);
 }
 
 extern "C" {
