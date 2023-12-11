@@ -3,6 +3,14 @@ use std::slice;
 static HELLO_WORLD: &str = "Hello, world";
 static mut COUNTER: u32 = 0;
 
+unsafe trait Foo {
+    // methods go here
+}
+
+unsafe impl Foo for i32 {
+    // method implementations go here
+}
+
 pub fn advanced_features_main() {
     let mut v = vec![1, 2, 3, 4, 5, 6];
     let r = &mut v[..];
