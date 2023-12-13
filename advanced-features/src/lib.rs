@@ -29,6 +29,33 @@ impl Add for Point {
     }
 }
 
+trait Pilot {
+    fn fly(&self);
+}
+
+trait Wizard {
+    fn fly(&self);
+}
+
+struct Human;
+
+impl Pilot for Human {
+    fn fly(&self) {
+        println!("This is your captain speaking.");
+    }
+}
+
+impl Wizard for Human {
+    fn fly(&self) {
+        println!("Up!");
+    }
+}
+
+impl Human {
+    fn fly(&self) {
+        println!("*waving arms furiously*");
+    }
+}
 pub fn advanced_features_main() {
     let mut v = vec![1, 2, 3, 4, 5, 6];
     let r = &mut v[..];
@@ -53,6 +80,11 @@ pub fn advanced_features_main() {
     let p2 = Point { x: 3, y: 4 };
     let p3 = p1 + p2;
     println!("{:?} + {:?} = {:?}", Point { x: 1, y: 2 }, Point { x: 3, y: 4 }, p3);
+
+    let person = Human;
+    person.fly();
+    Pilot::fly(&person);
+    Wizard::fly(&person);
 }
 
 extern "C" {
