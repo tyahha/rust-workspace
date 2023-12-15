@@ -1,5 +1,6 @@
 use std::ops::Add;
-use std::slice;
+use std::{fmt, slice};
+use std::fmt::{Display, Formatter};
 
 static HELLO_WORLD: &str = "Hello, world";
 static mut COUNTER: u32 = 0;
@@ -74,6 +75,26 @@ impl Human {
         println!("*waving arms furiously*");
     }
 }
+
+trait Outline: fmt::Display {
+    fn outline_print(&self) {
+        let output = self.to_string();
+        let len = output.len();
+        println!("{}", "*".repeat(len + 4));
+        println!("*{}*", " ".repeat(len + 2));
+        println!("* {} *", output);
+        println!("*{}*", " ".repeat(len + 2));
+        println!("{}", "*".repeat(len + 4));
+    }
+}
+
+impl Outline for Point {}
+impl Display for Point {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        write!(f, "({}, {})", self.x, self.y)
+    }
+}
+
 pub fn advanced_features_main() {
     let mut v = vec![1, 2, 3, 4, 5, 6];
     let r = &mut v[..];
@@ -106,6 +127,9 @@ pub fn advanced_features_main() {
 
     println!("A baby dog is called a {}", Dog::baby_name());
     println!("A baby dog is called a {}", <Dog as Animal>::baby_name());
+
+    let p = Point { x: 1, y: 2 };
+    p.outline_print();
 }
 
 extern "C" {
