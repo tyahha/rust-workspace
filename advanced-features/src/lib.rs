@@ -95,6 +95,14 @@ impl Display for Point {
     }
 }
 
+struct Wrapper(Vec<String>);
+
+impl Display for Wrapper {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        write!(f, "[{}]", self.0.join(", "))
+    }
+}
+
 pub fn advanced_features_main() {
     let mut v = vec![1, 2, 3, 4, 5, 6];
     let r = &mut v[..];
@@ -130,6 +138,9 @@ pub fn advanced_features_main() {
 
     let p = Point { x: 1, y: 2 };
     p.outline_print();
+
+    let w = Wrapper(vec![String::from("hello"), String::from("world")]);
+    println!("w = {}", w);
 }
 
 extern "C" {
