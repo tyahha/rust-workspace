@@ -141,6 +141,16 @@ pub fn advanced_features_main() {
 
     let w = Wrapper(vec![String::from("hello"), String::from("world")]);
     println!("w = {}", w);
+
+    advanced_type_main();
+}
+
+fn advanced_type_main() {
+    type Kilometer = i32;
+
+    let x: i32 = 1;
+    let y: Kilometer = 2;
+    println!("x + y = {}", x + y);
 }
 
 extern "C" {
