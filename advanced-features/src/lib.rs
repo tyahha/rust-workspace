@@ -143,6 +143,7 @@ pub fn advanced_features_main() {
     println!("w = {}", w);
 
     advanced_type_main();
+    function_pointer_main();
 }
 
 fn advanced_type_main() {
@@ -153,6 +154,19 @@ fn advanced_type_main() {
     println!("x + y = {}", x + y);
 }
 
+fn add_one(x: i32) -> i32 {
+    x + 1
+}
+
+fn do_twice(f: fn(i32) -> i32, arg: i32) -> i32 {
+    f(arg) + f(arg)
+}
+
+fn function_pointer_main() {
+    let answer = do_twice(add_one, 5);
+
+    println!("The answer is: {}", answer);
+}
 extern "C" {
     fn abs(input: i32) -> i32;
 }
