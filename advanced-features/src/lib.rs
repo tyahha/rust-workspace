@@ -145,6 +145,9 @@ pub fn advanced_features_main() {
     advanced_type_main();
     function_pointer_main();
     using_function_pointer();
+
+    let f = returns_closure();
+    println!("returns {}", f(4));
 }
 
 fn advanced_type_main() {
@@ -173,6 +176,10 @@ fn using_function_pointer() {
     let l = vec![1,2,3];
     let str_list: Vec<_> = l.iter().map(ToString::to_string).collect();
     println!("string list: {:?}", str_list);
+}
+
+fn returns_closure() -> Box<dyn Fn(i32) -> i32> {
+    Box::new(|x| x + 1)
 }
 
 extern "C" {
