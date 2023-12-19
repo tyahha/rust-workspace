@@ -144,6 +144,7 @@ pub fn advanced_features_main() {
 
     advanced_type_main();
     function_pointer_main();
+    using_function_pointer();
 }
 
 fn advanced_type_main() {
@@ -167,6 +168,13 @@ fn function_pointer_main() {
 
     println!("The answer is: {}", answer);
 }
+
+fn using_function_pointer() {
+    let l = vec![1,2,3];
+    let str_list: Vec<_> = l.iter().map(ToString::to_string).collect();
+    println!("string list: {:?}", str_list);
+}
+
 extern "C" {
     fn abs(input: i32) -> i32;
 }
