@@ -14,3 +14,4 @@ oop-in-rust = { path = "../oop-in-rust" }
 blog = { path = "../blog" }
 pattern-matching = { path = "../pattern-matching" }
 advanced-features = { path = "../advanced-features" }
+hello_macro = { path = "../hello_macro" }

@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/oop-in-rust/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/advanced-features/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/blog/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hello_macro/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pattern-matching/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>

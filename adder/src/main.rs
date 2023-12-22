@@ -8,6 +8,7 @@ use blog::Post;
 
 extern crate pattern_matching;
 extern crate advanced_features;
+extern crate hello_macro;
 
 fn main() {
     println!("4 + 1 = {}", add_one::add_one(4));
@@ -31,4 +32,6 @@ fn main() {
     pattern_matching::pattern_matching_main();
 
     advanced_features::advanced_features_main();
+
+    hello_macro::hello_macro_main();
 }

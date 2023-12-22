@@ -19,6 +19,7 @@ dependencies = [
  "advanced-features",
  "blog",
  "fearless-concurrency",
+ "hello_macro",
  "oop-in-rust",
  "pattern-matching",
  "smart-pointer",
@@ -34,6 +35,10 @@ version = "0.1.0"
 
 [[package]]
 name = "fearless-concurrency"
+version = "0.1.0"
+
+[[package]]
+name = "hello_macro"
 version = "0.1.0"
 
 [[package]]
