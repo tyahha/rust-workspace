@@ -6,6 +6,7 @@ members = [
     "add-two",
     "smart-pointer",
     "fearless-concurrency",
-    "hello_macro"
+    "hello_macro",
+    "web-server",
 ]
 
