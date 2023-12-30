@@ -14,6 +14,7 @@
       <sourceFolder url="file://$MODULE_DIR$/hello_macro/hello_macro_derive/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/hello_macro/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pattern-matching/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/web-server/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
