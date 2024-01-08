@@ -19,13 +19,19 @@ fn handle_connection(mut stream: TcpStream) {
 
     println!("Request: {}", String::from_utf8_lossy(&buf[..]));
 
-    let mut file = File::open("web-server/hello.html").unwrap();
+    let get = b"GET / HTTP/1.1\r\n";
 
-    let mut contents = String::new();
-    file.read_to_string(&mut contents).unwrap();
+    if buf.starts_with(get) {
+        let mut file = File::open("web-server/hello.html").unwrap();
 
-    let response = format!("HTTP/1.1 200 OK\r\n\r\n{}", contents);
+        let mut contents = String::new();
+        file.read_to_string(&mut contents).unwrap();
 
-    stream.write(response.as_bytes()).unwrap();
-    stream.flush().unwrap();
+        let response = format!("HTTP/1.1 200 OK\r\n\r\n{}", contents);
+
+        stream.write(response.as_bytes()).unwrap();
+        stream.flush().unwrap();
+    } else {
+        // some other request
+    }
 }
