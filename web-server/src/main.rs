@@ -20,8 +20,12 @@ fn handle_connection(mut stream: TcpStream) {
     println!("Request: {}", String::from_utf8_lossy(&buf[..]));
 
     let get = b"GET / HTTP/1.1\r\n";
+    let sleep = b"GET /sleep HTTP/1.1\r\n";
 
     let (status_code, file_name_body) = if buf.starts_with(get) {
+        ("200 OK", "hello")
+    } else if buf.starts_with(sleep) {
+        std::thread::sleep(std::time::Duration::from_secs(5));
         ("200 OK", "hello")
     } else {
         ("404 NOT FOUND", "404")
