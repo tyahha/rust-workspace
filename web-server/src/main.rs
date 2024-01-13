@@ -2,13 +2,22 @@ use std::io::prelude::*;
 use std::fs::File;
 use std::net::{TcpListener, TcpStream};
 
+struct ThreadPool;
+
+impl ThreadPool {
+    fn new(size: usize) -> ThreadPool {
+        ThreadPool
+    }
+}
+
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
+    let pool = ThreadPool::new(4);
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
 
-        std::thread::spawn(|| {
+        pool.execute(|| {
             handle_connection(stream);
         });
     }
