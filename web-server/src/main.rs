@@ -2,7 +2,9 @@ use std::io::prelude::*;
 use std::fs::File;
 use std::net::{TcpListener, TcpStream};
 
-struct ThreadPool;
+struct ThreadPool {
+    threads: Vec<std::thread::JoinHandle<()>>,
+}
 
 impl ThreadPool {
     /// Create a new ThreadPool
@@ -15,7 +17,15 @@ impl ThreadPool {
     fn new(size: usize) -> ThreadPool {
         assert!(size > 0);
 
-        ThreadPool
+        let mut threads = Vec::with_capacity(size);
+
+        for _ in 0..size {
+            // create some threads and store them in the vector
+        }
+
+        ThreadPool {
+            threads
+        }
     }
 
     pub fn execute<F>(&self, f: F)
