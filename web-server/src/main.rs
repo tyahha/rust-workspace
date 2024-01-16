@@ -1,9 +1,13 @@
 use std::io::prelude::*;
 use std::fs::File;
 use std::net::{TcpListener, TcpStream};
+use std::sync::mpsc;
+use std::sync::Arc;
+use std::sync::Mutex;
 
 struct ThreadPool {
     workers: Vec<Worker>,
+    sender: mpsc::Sender<Job>
 }
 
 impl ThreadPool {
@@ -17,14 +21,19 @@ impl ThreadPool {
     fn new(size: usize) -> ThreadPool {
         assert!(size > 0);
 
+        let (sender, receiver) = mpsc::channel();
+
+        let receiver = Arc::new(Mutex::new(receiver));
+
         let mut workers = Vec::with_capacity(size);
 
         for id in 0..size {
-            workers.push(Worker::new(id));
+            workers.push(Worker::new(id, Arc::clone(&receiver)));
         }
 
         ThreadPool {
-            workers
+            workers,
+            sender,
         }
     }
 
@@ -42,8 +51,10 @@ struct Worker {
 }
 
 impl Worker {
-    fn new(id: usize) -> Worker {
-        let thread = std::thread::spawn(|| {});
+    fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
+        let thread = std::thread::spawn(|| {
+            receiver;
+        });
 
         Worker {
             id,
@@ -51,6 +62,8 @@ impl Worker {
         }
     }
 }
+
+struct Job;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
