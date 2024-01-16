@@ -41,7 +41,8 @@ impl ThreadPool {
         where
             F: FnOnce() + Send + 'static
     {
-
+        let job = Box::new(f);
+        self.sender.send(job).unwrap();
     }
 }
 
@@ -63,7 +64,7 @@ impl Worker {
     }
 }
 
-struct Job;
+type Job = Box<dyn FnOnce() + Send + 'static>;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
